@@ -1,5 +1,12 @@
 'use strict';
 
+class CustomError extends Error {
+  constructor(name, msg) {
+    super(msg);
+    this.name = name;
+  }
+}
+
 module.exports = function wait(obj, event, timeout) {
   return new Promise((resolve, reject) => {
     const done = event === 'error' ? reject : resolve;
@@ -16,7 +23,7 @@ module.exports = function wait(obj, event, timeout) {
     if (typeof timeout === 'number') {
       cancelId = setTimeout(() => {
         obj.removeListener(event, cb);
-        return reject(new Error('TimeoutError', `${event} timeout`));
+        return reject(new CustomError('TimeoutError', `${event} timeout`));
       }, timeout);
     }
 
