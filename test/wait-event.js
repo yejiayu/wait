@@ -7,7 +7,7 @@ test('wait ready', async (t) => {
   const event = new EventEmitter()
 
   setTimeout(function () {
-    event.emit('ready', 'result')
+    event.emit('readyc', 'result')
   }, 1000);
   const result = await wait(event, 'ready');
   t.is(result, 'result')
