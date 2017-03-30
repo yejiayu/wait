@@ -1,6 +1,6 @@
 {
   "name": "wait",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "wait event",
   "main": "index.js",
   "directories": {
